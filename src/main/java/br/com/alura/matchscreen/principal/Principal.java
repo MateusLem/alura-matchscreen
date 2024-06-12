@@ -17,7 +17,7 @@ public class Principal {
     private ConsumoAPI consumo = new ConsumoAPI();
     private ConverteDados conversor = new ConverteDados();
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
-    private final String API_KEY = "&apikey=a24a2dc4";
+    private String API_KEY = "&apikey=";
 
 
     public void treinoStream() {
@@ -53,6 +53,10 @@ public class Principal {
     }
 
     public void exibeMenu() {
+        System.out.print("Sua apikey: ");
+        API_KEY += leitura.nextLine();
+        System.out.println();
+        
         System.out.print("Digite o nome da série: ");
         var nomeSerie = leitura.nextLine();
         var json = consumo.obterDados(ENDERECO +
